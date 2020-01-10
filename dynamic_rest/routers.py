@@ -331,7 +331,7 @@ class DynamicRouter(DefaultRouter):
             return routes
 
         serializer = viewset.serializer_class()
-        fields = getattr(serializer, 'get_link_fields', lambda: [])()
+        fields = getattr(serializer, 'get_link_fields', lambda: {})()
 
         route_name = '{basename}-{methodnamehyphen}'
         if drf_version >= (3, 8, 0):
